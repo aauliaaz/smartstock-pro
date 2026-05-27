@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
 
-    // ============== Public ==============
+    // Public
     Route::post('/auth/login', [AuthController::class, 'login']);
 
-    // ============== Authenticated ==============
+    // Authenticated
     Route::middleware(['auth:sanctum', 'role'])->group(function () {
 
         // Auth

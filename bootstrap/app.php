@@ -3,9 +3,12 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use Illuminate\Cookie\Middleware\EncryptCookies;
 use App\Models\ErrorLog;
 use App\Models\Notification;
 use App\Models\User;
+use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -17,7 +20,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->statefulApi();
+        $middleware->api(prepend: [
+            EncryptCookies::class,
+            AddQueuedCookiesToResponse::class,
+            StartSession::class,
+        ]);
         $middleware->alias([
             'role' => \App\Http\Middleware\RoleMiddleware::class,
         ]);
@@ -41,7 +48,7 @@ return Application::configure(basePath: dirname(__DIR__))
                     'user_id' => $admin->id,
                     'title' => 'System Exception: ' . Str::limit($e->getMessage(), 50),
                     'message' => "Terjadi error pada sistem. ID Log: {$error->id}. Silakan cek Error Log Dashboard.",
-                    'type' => 'ERROR'
+                    'type' => 'CRITICAL'
                 ]);
             }
         });

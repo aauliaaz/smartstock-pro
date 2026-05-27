@@ -67,6 +67,7 @@ export const useAuth = create<AuthState>((set, get) => ({
     const user = get().user
     if (!user?.role) return false
     const list = Array.isArray(roles) ? roles : [roles]
-    return list.includes(user.role.code)
+    const role = user.role.slug ?? user.role.code
+    return typeof role === "string" && list.includes(role)
   },
 }))

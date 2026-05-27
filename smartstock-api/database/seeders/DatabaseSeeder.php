@@ -52,12 +52,12 @@ class DatabaseSeeder extends Seeder
 
         $users = [
             ['name' => 'Administrator', 'email' => 'admin@smartstock.id', 'password' => 'Admin@123', 'role_id' => $admRole->id, 'warehouse_id' => null],
-            ['name' => 'Budi Manajer', 'email' => 'manajer@smartstock.id', 'password' => 'Manajer@123', 'role_id' => $mgrRole->id, 'warehouse_id' => null],
-            ['name' => 'Siti Staf Jakarta', 'email' => 'staf.jkt@smartstock.id', 'password' => 'Staf@123', 'role_id' => $stfRole->id, 'warehouse_id' => $whJkt->id],
-            ['name' => 'Andi Staf Surabaya', 'email' => 'staf.sby@smartstock.id', 'password' => 'Staf@123', 'role_id' => $stfRole->id, 'warehouse_id' => $whSby->id],
-            ['name' => 'Rina Staf Bandung', 'email' => 'staf.bdg@smartstock.id', 'password' => 'Staf@123', 'role_id' => $stfRole->id, 'warehouse_id' => $whBdg->id],
-            ['name' => 'Joko Staf Medan', 'email' => 'staf.mdn@smartstock.id', 'password' => 'Staf@123', 'role_id' => $stfRole->id, 'warehouse_id' => $whMdn->id],
-            ['name' => 'Dewi Staf Makassar', 'email' => 'staf.mks@smartstock.id', 'password' => 'Staf@123', 'role_id' => $stfRole->id, 'warehouse_id' => $whMks->id],
+            ['name' => 'Aul Manajer', 'email' => 'manajer@smartstock.id', 'password' => 'Manajer@123', 'role_id' => $mgrRole->id, 'warehouse_id' => null],
+            ['name' => 'Aul Staf Jakarta', 'email' => 'staf.jkt@smartstock.id', 'password' => 'Staf@123', 'role_id' => $stfRole->id, 'warehouse_id' => $whJkt->id],
+            ['name' => 'Aul Staf Surabaya', 'email' => 'staf.sby@smartstock.id', 'password' => 'Staf@123', 'role_id' => $stfRole->id, 'warehouse_id' => $whSby->id],
+            ['name' => 'Aul Staf Bandung', 'email' => 'staf.bdg@smartstock.id', 'password' => 'Staf@123', 'role_id' => $stfRole->id, 'warehouse_id' => $whBdg->id],
+            ['name' => 'Aul Staf Medan', 'email' => 'staf.mdn@smartstock.id', 'password' => 'Staf@123', 'role_id' => $stfRole->id, 'warehouse_id' => $whMdn->id],
+            ['name' => 'Aul Staf Makassar', 'email' => 'staf.mks@smartstock.id', 'password' => 'Staf@123', 'role_id' => $stfRole->id, 'warehouse_id' => $whMks->id],
             ['name' => 'Sales Viewer', 'email' => 'viewer@smartstock.id', 'password' => 'Viewer@123', 'role_id' => $vwrRole->id, 'warehouse_id' => null],
         ];
         foreach ($users as $u) {

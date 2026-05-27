@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { ClipboardList, User as UserIcon, Activity } from "lucide-react"
+import { User as UserIcon } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import client from "@/api/client"

@@ -21,39 +21,39 @@ class UserSeeder extends Seeder
         $staffRole = Role::where('slug', 'staff')->first();
         $viewerRole = Role::where('slug', 'viewer')->first();
 
-        User::create([
+        User::updateOrCreate(['email' => 'admin@smartstock.id'], [
             'name' => 'Administrator',
-            'email' => 'admin@smartstock.pro',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('Admin@123'),
             'role_id' => $adminRole->id,
-        ])->notifications()->create([
+        ])->notifications()->firstOrCreate([
+            'title' => 'Welcome to SmartStock Pro',
+        ], [
             'title' => 'Welcome to SmartStock Pro',
             'message' => 'System successfully initialized. You have full access.',
             'type' => 'INFO'
         ]);
 
-        User::create([
+        User::updateOrCreate(['email' => 'manager@smartstock.id'], [
             'name' => 'Manager Surabaya',
-            'email' => 'manager.sby@smartstock.pro',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('Manager@123'),
             'role_id' => $managerRole->id,
-        ])->notifications()->create([
+        ])->notifications()->firstOrCreate([
+            'title' => 'Stock Alert',
+        ], [
             'title' => 'Stock Alert',
             'message' => 'iPhone 15 Pro stock is below threshold in Surabaya.',
             'type' => 'WARNING'
         ]);
 
-        User::create([
+        User::updateOrCreate(['email' => 'staff@smartstock.id'], [
             'name' => 'Staff Jakarta',
-            'email' => 'staff.jkt@smartstock.pro',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('Staff@123'),
             'role_id' => $staffRole->id,
         ]);
 
-        User::create([
+        User::updateOrCreate(['email' => 'viewer@smartstock.id'], [
             'name' => 'Viewer Only',
-            'email' => 'viewer@smartstock.pro',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('Viewer@123'),
             'role_id' => $viewerRole->id,
         ]);
     }

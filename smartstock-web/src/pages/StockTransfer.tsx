@@ -9,7 +9,7 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import client from "@/api/client"
-import { formatNumber, formatDate } from "@/lib/utils"
+import { formatDate } from "@/lib/utils"
 import { toast } from "react-hot-toast"
 import { useAuth } from "@/context/AuthContext"
 

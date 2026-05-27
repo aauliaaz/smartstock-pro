@@ -89,7 +89,10 @@ class ComprehensiveSystemTest extends TestCase
     public function product_crud_with_image_works()
     {
         Storage::fake('public');
-        $file = UploadedFile::fake()->image('product.jpg');
+        $file = UploadedFile::fake()->createWithContent(
+            'product.png',
+            base64_decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=')
+        );
 
         $response = $this->actingAs($this->users['admin'])->postJson('/api/products', [
             'name' => 'Galaxy S24',

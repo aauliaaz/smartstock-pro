@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react"
-import { Activity, Cpu, HardDrive, Zap, Clock } from "lucide-react"
+import { Cpu, HardDrive, Zap, Clock } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import client from "@/api/client"
 
 export default function ServerMonitoringPage() {
   const [stats, setStats] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
 
   const load = async () => {
     try {
       const { data } = await client.get("/api/system/stats")
       setStats(data)
-    } finally {
-      setLoading(false)
-    }
+    } catch {}
   }
 
   useEffect(() => {

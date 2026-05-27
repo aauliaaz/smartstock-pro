@@ -10,8 +10,8 @@ import { toast } from "react-hot-toast"
 import type { AxiosError } from "axios"
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("admin@smartstock.pro")
-  const [password, setPassword] = useState("password")
+  const [email, setEmail] = useState("admin@smartstock.id")
+  const [password, setPassword] = useState("Admin@123")
   const [submitting, setSubmitting] = useState(false)
   const { login } = useAuth()
   const navigate = useNavigate()
@@ -65,12 +65,8 @@ export default function LoginPage() {
             </form>
 
             <div className="mt-6 border-t pt-4">
-              <p className="text-xs font-semibold mb-2 text-muted-foreground uppercase tracking-wider">Akun Demo:</p>
               <div className="grid grid-cols-1 gap-1 text-xs text-muted-foreground">
-                <p>👤 <strong>Admin:</strong> admin@smartstock.pro / password</p>
-                <p>👔 <strong>Manajer:</strong> manager.sby@smartstock.pro / password</p>
-                <p>📦 <strong>Staf:</strong> staff.jkt@smartstock.pro / password</p>
-                <p>👀 <strong>Viewer:</strong> viewer@smartstock.pro / password</p>
+
               </div>
             </div>
           </CardContent>

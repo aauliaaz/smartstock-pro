@@ -1,15 +1,30 @@
 export type RoleCode = "admin" | "manager" | "staff" | "viewer"
+export type ApiRoleCode = "ADM" | "MGR" | "STF" | "VWR"
+
+export interface UserRole {
+  id: number
+  name: string
+  code?: ApiRoleCode | RoleCode
+  slug: RoleCode
+}
 
 export interface User {
   id: number
   name: string
   email: string
-  role: { id: number; name: string; slug: RoleCode } | null
+  role_id?: number
+  role: UserRole | null
+  warehouse?: { id: number; code: string; name: string } | null
+  is_active?: boolean
+  last_login_at?: string | null
+  created_at?: string
+  updated_at?: string
 }
 
 export interface Role {
   id: number
   name: string
+  code?: ApiRoleCode | RoleCode
   slug: RoleCode
   description: string | null
 }
@@ -56,17 +71,16 @@ export interface Product {
   sku: string
   name: string
   description: string | null
+  category_id: number
   category: { id: number; name: string } | null
   unit: string
-  min_stock: number
+  min_threshold: number
+  unit_price: number
   total_stock: number
   is_low_stock: boolean
-  price_buy: number
-  price_sell: number
-  is_active: boolean
-  primary_image?: string | null
-  stocks?: ProductStock[]
+  images?: { id: number; image_path: string; is_primary: boolean }[]
   created_at: string
+  updated_at: string
 }
 
 export interface ProductStock {
@@ -81,10 +95,12 @@ export interface ProductStock {
 export interface PaginationMeta {
   current_page: number
   last_page: number
-  per_page: number
+  per_page?: number
   total: number
-  from: number
-  to: number
+  from?: number
+  to?: number
+  unread_count?: number
+  stats?: { critical: number; warning: number; info: number }
 }
 
 export interface StockMovement {
@@ -174,15 +190,6 @@ export interface ErrorLog {
   is_resolved: boolean
   user?: { id: number; name: string } | null
   created_at: string
-}
-
-export interface PaginationMeta {
-  current_page: number
-  last_page: number
-  per_page?: number
-  total: number
-  unread_count?: number
-  stats?: { critical: number; warning: number; info: number }
 }
 
 export interface ApiResponse<T> {

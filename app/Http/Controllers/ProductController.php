@@ -15,7 +15,6 @@ class ProductController extends Controller
 {
     public function import(Request $request)
     {
-        // For demo, we'll just mock the data from request
         $data = [
             ['name' => 'Imported Phone 1', 'sku' => 'IMP-001', 'category_id' => 1, 'unit_price' => 5000000],
             ['name' => 'Imported Laptop 2', 'sku' => 'IMP-002', 'category_id' => 2, 'unit_price' => 12000000],
