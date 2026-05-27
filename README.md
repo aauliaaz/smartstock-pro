@@ -1,4 +1,5 @@
 # SmartStock Pro
+<img width="1887" height="898" alt="image" src="https://github.com/user-attachments/assets/a4da5897-df8d-48a7-b9e0-2117fa8ba29d" />
 
 SmartStock Pro adalah aplikasi web manajemen inventaris multi-gudang untuk membantu pencatatan stok, pengelolaan produk, transaksi stok masuk/keluar, transfer antar gudang, monitoring dashboard, notifikasi, audit log, error log, dan laporan PDF.
 
